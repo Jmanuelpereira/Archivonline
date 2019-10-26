@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_DetailRS1" value="name:Contador;datatype:int,name:Codigo;datatype:real,name:Nombre;datatype:string,name:Nombreachivo;datatype:string,name:Uplauder;datatype:string,name:Fecha;datatype:datetime,name:Categoria;datatype:int,name:Estado;datatype:int,name:Verificacion;datatype:int,name:Carrera;datatype:int,name:Semestre;datatype:int,name:Materia;datatype:int" />
+	<infoitem key="UD_Recordset1" value="name:Contador;datatype:int,name:Codigo;datatype:real,name:Nombre;datatype:string,name:Nombreachivo;datatype:string,name:Uplauder;datatype:string,name:Fecha;datatype:datetime,name:Categoria;datatype:int,name:Estado;datatype:int,name:Verificacion;datatype:int,name:Carrera;datatype:int,name:Semestre;datatype:int,name:Materia;datatype:int,name:Paginas;datatype:string,name:Profesor;datatype:string" />
+</info>

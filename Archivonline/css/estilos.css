@@ -1,0 +1,844 @@
+@charset "utf-8";
+body {
+	font-family: 'Raleway', sans-serif;;
+	background-color: #195e8d;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: none; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #000;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+
+/* ~~ este contenedor de anchura fija rodea a las demás divs ~~ */
+.container {
+	
+	background-color: #FFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño */
+}
+
+/* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
+.header {
+	background-color: #2c7eb4;
+	height: 50px;
+	padding: 10px;
+	border-bottom-width: 4px;
+	border-bottom-style: solid;
+	border-bottom-color: #005B88;
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de las divs. Los elementos situados dentro de estas divs tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en una div configurada para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de divs para las que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla de la div para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos divs de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la derecha en lugar de a la izquierda, simplemente haga que estas columnas floten en dirección opuesta (todas a la derecha en lugar de todas a la izquierda) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 220px;
+	background-color: #;
+	
+}
+.content {
+
+	padding: 5px;
+	width:auto;
+	margin: 0 auto;
+	width:95%;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ El pie de página ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #2c7eb4;
+	position: relative;/* esto da a IE6 hasLayout para borrar correctamente */
+	clear: both;
+	height:inherit /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si #footer se elimina o se saca fuera de #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*Clase documento*/
+
+.documento {
+	width: 125px;
+	background-color: #ededed;
+	border: 1px solid #CCC;
+	border-radius:10px;
+	padding:10px;
+	float:left;
+	height:230px;
+	margin-left:10px;
+	margin-top:10px;
+	
+	}
+.documento:hover {
+	
+	background-color: #dddddd;
+	border: 1px solid #CCC;
+	border-radius:10px;
+	padding:10px;
+	cursor:pointer	
+	
+	}
+.seguidor {
+	padding:10px;
+	background-color:#CCC;
+	margin-bottom:10px;
+	
+}
+.agregar {
+	float: right;
+	
+	background-color: #ededed;
+	border-radius: 10px;
+	border: 1px solid #CCC;
+	padding: 10px;
+	
+	}
+.agregar:hover {
+	float: right;
+	
+	background-color: #dddddd;	
+	border-radius: 10px;
+	padding:10px;
+	
+	cursor:pointer	
+	}
+	.btn span {	
+  display: inline-block;
+  padding: 10px  20px;
+  background: #3194c6;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+	.boton {
+  background-color:#2395ff;
+	border:1px solid #0066CC;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 8px;
+	min-width: 110px;
+	margin-top: 7px;
+	cursor:pointer;
+}
+.boton a:hover {
+ background-color:#55AAFF;
+	color:#fff;
+	cursor:pointer;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.campo{
+	border-radius: 5px;
+	padding: 5px;
+	width: 200px;
+	border: 1px solid #999;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.campoeditable{
+	border-radius: 5px;
+	padding: 5px;
+	
+	border: 1px solid #999;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.Botontablas {
+  background-color:#2395ff;
+	border:1px solid #0066CC;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px;
+	min-width: 110px;
+	margin-top: 7px;
+	cursor:pointer;
+}
+	
+
+.Botontablas a:hover {
+ background-color:#55AAFF;
+	color:#fff;
+	cursor:pointer;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+	.exito {
+	border-radius: 10px;
+	background-color: #72FE75;
+	width: 650px;
+	height: 100px;
+	margin-left: 50px;
+	color: #009500;
+	margin-top: 20px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+		}
+		
+.botonesdo {
+	background-color: #d7d7d7;
+	float: right;
+	font-size: 24px;
+	padding: 10px;
+	width: 25px;
+	border-radius: 5px;
+	border: 1px solid #CCC;
+	}
+	
+.botonesdo:hover {
+	cursor:pointer;
+	background-color:#ccc
+	
+	}
+	
+.opcionesd {
+	background-color: #36aae7;
+	
+	padding: 10px;
+	border: 1px dashed #06F;
+	border-radius:10px;
+	
+	}
+.buscar {
+	background-color: #FFA4A4;
+	margin: 10px;
+	padding: 10px;
+	
+	
+	width: 450px;
+	border: 1px solid #F00;
+	color: #FF3C3C;
+	}
+	
+.ficha{
+	background-color: #E6E6E6;
+	padding: 10px;
+	width: 535px;
+	float:left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	border: 1px solid #CCC;
+}
+.ficha:hover{
+	background-color: #D4D4D4;
+	cursor:pointer;	
+}
+.recientes {
+	box-shadow: 0 0 4px #e6e6e6;
+    -webkit-box-shadow: 0 0 4px #e6e6e6;
+    -moz-box-shadow: 0 0 4px #e6e6e6;
+    border:1px solid #ccc;
+	background-color: #f7f7f7;
+	border-radius:3px;
+	border: 1px solid #ccc;
+	margin: 5px;
+	padding: 5px;
+	
+	width: 210px;
+	border: 1px solid #DADADA;
+	height: 20px;
+}
+
+.recientes:hover {
+	background-color: #e6e6e6;
+	cursor:pointer
+}
+.inicio {
+    box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 10px #ccc;
+    border:1px solid #ccc;
+	border-radius:3px;
+	background-color: #f7f7f7;
+	margin: 5px;
+	padding: 15px;
+	
+	width: 510px;
+	height:468px;
+	border: 1px solid #DADADA;
+	
+	}
+	
+.menuizquierdo {
+    box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 10px #ccc;
+    border:1px solid #ccc;
+	border-radius:3px;
+	background-color: #f7f7f7;
+	margin: 5px;
+	padding: 15px;
+	float: left;
+	width: 440px;
+	border: 1px solid #DADADA;
+	
+	}
+.reciente {
+        background-color: #f1f1f1;
+	border-radius:3px;
+	border: 1px solid #ccc;
+	
+	padding: 10px;
+	height:60px;
+	width: 465px;
+	margin-top:10px;
+	
+	
+	}
+.reciente:hover {
+    background-color: #e6e6e6;
+	cursor:pointer;
+	
+	}
+	.recientes2 {
+	  background-color: #e0e0e0;
+	
+	padding: 10px;
+	height:60px;
+	width: 460px;
+	margin-right:10px;
+	margin-top:10px;
+	border: 1px solid #DADADA;
+}
+.recientes2:hover {
+	background-color: #cfcfcf;
+	cursor:pointer;
+}
+.opcionesperfil {
+	background-color: #f1f1f1;
+	padding: 5px;
+	width: 100px;
+	margin-top: 10px;
+	border: 1px solid #DADADA;
+	font-size: 12px;
+	text-align: left;
+	}
+.opcionesperfil:hover {
+	background-color: #e6e6e6;
+	cursor:pointer;
+
+	}
+.noticias {
+    background-color: #e0e0e0;
+	
+	padding: 10px;
+	height:60px;
+	width: 420px;
+	margin-top:10px;
+	border: 1px solid #DADADA;
+	
+	}
+.noticias:hover {
+    background-color: #cfcfcf;
+	
+	
+	}
+	
+.paginacion {
+	background-color: #e0e0e0;
+	width:80px;
+	
+	padding: 10px;
+	
+	
+	margin-top:10px;
+	border: 1px solid #DADADA;
+	}
+/*Buscador*/
+input[type="search"]{
+	width: 45px;
+	background: #ededed url('../img/iconos/search-icon.png') no-repeat 9px center;
+	border-radius: 15em;
+	transition: all .5s;
+	outline: none;
+	margin-bottom: 5px;
+	padding-top: 9px;
+	padding-right: 10px;
+	padding-bottom: 9px;
+	padding-left: 32px;
+}
+input[type="search"]:hover{
+	width: 250px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #FFF;
+}
+.completar {
+	
+	background-color: #FFB7B9;
+	
+	padding: 10px;
+	text-align:center; 
+	padding:10px; 
+	width:200px; 
+	float:left;
+	height:auto;
+	margin-top:20px;
+	
+	width: 220px;
+	margin-left:40px;
+	
+	border: 1px solid #FF0000;
+}
+.completar:hover {
+	
+	background-color: #FFB7B9;
+	cursor:pointer
+	
+}
+.exito2 {
+	
+	background-color: #AEFFAE;
+	
+	padding: 10px;
+	text-align:center; 
+	padding:10px; 
+	width:200px; 
+	float:left;
+	height:auto;
+	margin-top:20px;
+	color:#006F00;
+	font-size:12px;
+	
+	width: 220px;
+	margin-left:40px;
+	
+	border: 1px solid #00A600;
+}
+.advertencia {
+	background-color: #FFB7B9;
+	text-align: center;
+	padding: 10px;
+	width: 200px;
+	float: none;
+	height: auto;
+	width: 220px;
+	border: 1px solid #FF0000;
+	}
+.top {
+	background-color: #e9e9e9;
+	padding: 5px;
+	width: auto;
+	float:right;
+	
+	border: 1px solid #DADADA;
+	font-size: 12px;
+	text-align: left; 
+	}
+	.top2 {
+	background-color: #e9e9e9;
+	padding: 5px;
+	width: 100px;
+	float:right;
+	
+	border: 1px solid #DADADA;
+	font-size: 12px;
+	text-align: left; 
+	}
+	.top2:hover {
+	background-color: #d9d9d9;
+	cursor:pointer
+	
+	}
+
+.campobueno {
+	
+		border-radius: 5px;
+	padding: 8px;
+	
+	width:auto;
+	
+	border: 1px solid #999;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	
+}
+
+.noticia
+{
+	width:197px;
+	background-color:#f1f1f1;
+	font-size:10px;
+	padding:5px;
+	border:#CCC dashed 1px;
+	margin-top:5px
+	
+	
+	
+	
+}
+.drecientepequeno {
+	
+	width:197px;
+	background-color:#E6E6E6;
+	font-size:10px;
+	padding:5px;
+	border:#CCC dashed 1px;
+	margin-top:5px;
+	float:left
+	
+}
+.usariosrecientes {
+		width:200px;
+	background-color:#f1f1f1;
+	font-size:9px;
+	padding:5px;
+	border:#CCC dashed 1px;
+	margin-top:5px;
+	float:left;
+	height:50px	;
+	margin-left:5px
+}
+.agregarconocido {
+	
+	
+}
+.agregarconocido:hover {
+	text-decoration: underline;
+	cursor:pointer
+	
+}
+.mensaje { background-color:#E4E4E4;
+border:#CCC 1px solid;
+font-size:12px;
+padding:10px;
+float:left
+	
+}
+.lineado:hover { text-decoration:underline;
+	
+}
+/*Efecto de carga*/
+
+#circularG{
+position:relative;
+width:128px;
+height:128px}
+
+.circularG{
+position:absolute;
+background-color:#115B9C;
+width:29px;
+height:29px;
+-moz-border-radius:19px;
+-moz-animation-name:bounce_circularG;
+-moz-animation-duration:0.8s;
+-moz-animation-iteration-count:infinite;
+-moz-animation-direction:linear;
+-webkit-border-radius:19px;
+-webkit-animation-name:bounce_circularG;
+-webkit-animation-duration:0.8s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:linear;
+-ms-border-radius:19px;
+-ms-animation-name:bounce_circularG;
+-ms-animation-duration:0.8s;
+-ms-animation-iteration-count:infinite;
+-ms-animation-direction:linear;
+-o-border-radius:19px;
+-o-animation-name:bounce_circularG;
+-o-animation-duration:0.8s;
+-o-animation-iteration-count:infinite;
+-o-animation-direction:linear;
+border-radius:19px;
+animation-name:bounce_circularG;
+animation-duration:0.8s;
+animation-iteration-count:infinite;
+animation-direction:linear;
+}
+
+#circularG_1{
+left:0;
+top:50px;
+-moz-animation-delay:0.3s;
+-webkit-animation-delay:0.3s;
+-ms-animation-delay:0.3s;
+-o-animation-delay:0.3s;
+animation-delay:0.3s;
+}
+
+#circularG_2{
+left:14px;
+top:14px;
+-moz-animation-delay:0.4s;
+-webkit-animation-delay:0.4s;
+-ms-animation-delay:0.4s;
+-o-animation-delay:0.4s;
+animation-delay:0.4s;
+}
+
+#circularG_3{
+top:0;
+left:50px;
+-moz-animation-delay:0.5s;
+-webkit-animation-delay:0.5s;
+-ms-animation-delay:0.5s;
+-o-animation-delay:0.5s;
+animation-delay:0.5s;
+}
+
+#circularG_4{
+right:14px;
+top:14px;
+-moz-animation-delay:0.6s;
+-webkit-animation-delay:0.6s;
+-ms-animation-delay:0.6s;
+-o-animation-delay:0.6s;
+animation-delay:0.6s;
+}
+
+#circularG_5{
+right:0;
+top:50px;
+-moz-animation-delay:0.7s;
+-webkit-animation-delay:0.7s;
+-ms-animation-delay:0.7s;
+-o-animation-delay:0.7s;
+animation-delay:0.7s;
+}
+
+#circularG_6{
+right:14px;
+bottom:14px;
+-moz-animation-delay:0.8s;
+-webkit-animation-delay:0.8s;
+-ms-animation-delay:0.8s;
+-o-animation-delay:0.8s;
+animation-delay:0.8s;
+}
+
+#circularG_7{
+left:50px;
+bottom:0;
+-moz-animation-delay:0.9s;
+-webkit-animation-delay:0.9s;
+-ms-animation-delay:0.9s;
+-o-animation-delay:0.9s;
+animation-delay:0.9s;
+}
+
+#circularG_8{
+left:14px;
+bottom:14px;
+-moz-animation-delay:1s;
+-webkit-animation-delay:1s;
+-ms-animation-delay:1s;
+-o-animation-delay:1s;
+animation-delay:1s;
+}
+
+@-moz-keyframes bounce_circularG{
+0%{
+-moz-transform:scale(1)}
+
+100%{
+-moz-transform:scale(.3)}
+
+}
+
+@-webkit-keyframes bounce_circularG{
+0%{
+-webkit-transform:scale(1)}
+
+100%{
+-webkit-transform:scale(.3)}
+
+}
+
+@-ms-keyframes bounce_circularG{
+0%{
+-ms-transform:scale(1)}
+
+100%{
+-ms-transform:scale(.3)}
+
+}
+
+@-o-keyframes bounce_circularG{
+0%{
+-o-transform:scale(1)}
+
+100%{
+-o-transform:scale(.3)}
+
+}
+
+@keyframes bounce_circularG{
+0%{
+transform:scale(1)}
+
+100%{
+transform:scale(.3)}
+
+}
+input:focus, select:focus {
+    box-shadow: 0 0 10px #53A9FF;
+    -webkit-box-shadow: 0 0 10px #53A9FF;
+    -moz-box-shadow: 0 0 10px #53A9FF;
+    border:1px solid #53A9FF;
+	outline:none;
+	transition: all 0.75s ease-in-out;
+    -webkit-transition: all 0.75s ease-in-out;
+    -moz-transition: all 0.75s ease-in-out;
+
+	
+   
+}
+.payment-methods {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.payment-methods:after {
+  content: "";
+  clear: both;
+}
+
+.payment-method {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  float: left;
+  height: 70px;
+  position: relative;
+  width: 120px;
+}
+
+.payment-method label {
+  background: #fff no-repeat center center;
+  bottom: 1px;
+  cursor: pointer;
+  display: block;
+  font-size: 0;
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  text-indent: 100%;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.payment-method + .payment-method {
+  margin-left: 25px;
+}
+
+.pagseguro label {
+  background-image: url(https://dl.dropbox.com/s/yvzrr9o54s2llkr/uol.png);
+}
+
+.paypal label {
+  background-image: url(https://dl.dropbox.com/s/i4z39zy2mtb7xq1/paypal.png);
+}
+
+.bankslip label {
+  background-image: url(https://dl.dropbox.com/s/myj41602bom0g8p/bankslip.png);
+}
+
+.payment-methods input:focus + label {
+  outline: 2px dotted #21b4d0;
+}
+
+.payment-methods input:checked + label {
+  outline: 4px solid #21b4d0;
+}
+
+.payment-methods input:checked + label:after {
+  background: url(https://dl.dropbox.com/s/vm6hpxjqbupy1xv/checked.png);
+  bottom: -10px;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  position: absolute;
+  right: -10px;
+  width: 20px;
+}
+
+@-moz-document url-prefix() {
+  .payment-methods input:checked + label:after {
+    bottom: 0;
+    right: 0;
+    background-color: #21b4d0;
+  }
+}

@@ -1,0 +1,449 @@
+@charset "utf-8";
+body {
+	font-family: 'Raleway', sans-serif;;
+	background-image: url(../img/fondocabezera.jpg);
+	background-attachment: scroll;
+	background-repeat: repeat;	
+	margin: 0;
+	padding: 0;
+	color: #000;
+	width:100%
+}
+
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+
+/* ~~ este contenedor de anchura fija rodea a las demás divs ~~ */
+.container {
+	width: 80%;
+	height:465px;
+	
+	
+
+	margin: 0 auto;
+	padding-left:0px
+	
+	
+
+	
+
+
+
+	 /* el valor automático de los lados, unido a la anchura, centra el diseño */
+}
+.contenedor {
+	background-color:#ebebeb;
+	width:100%;
+	 margin: 0 auto;
+	 max-width:1366px
+	
+	
+}
+
+/* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
+.header {
+	
+		width: 80%;
+	
+
+	margin: 0 auto;
+	
+
+
+	
+	clear: none;
+
+		height: 80px;
+
+
+
+}
+.fondoheader {
+
+		    box-shadow: 0 0 20px #53A9FF;
+    -webkit-box-shadow: 0 0 20px #53A9FF;
+    -moz-box-shadow: 0 0 20px #53A9FF;	
+	background-color: #0080C0;
+		border-bottom-width: 4px;
+	border-bottom-style: solid;
+	border-bottom-color: #06C;
+	    
+	
+   
+    
+}
+
+/* ~~ Esta es la información de diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de la div. Los elementos situados dentro de esta div tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+*/
+
+.content {
+	background-image: url(../img/fondocabezera.jpg);
+	background-attachment: scroll;
+	background-repeat: repeat;
+	padding-top: 0px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	margin-top: 15px;
+	margin-bottom:15px
+}
+
+/* ~~ El pie de página ~~ */
+.footer {
+		margin: 0 auto;
+
+		padding:10px;
+		height:29px;
+		clear:both;
+		
+		position:relative;
+
+
+   
+}
+.fondofooter {
+			background-color: #0080C0;	
+	border-top-width: 4px;
+	border-top-style: solid;
+	border-top-color: #06C;
+	clear:both;
+		
+		position:relative;
+	
+	
+	
+		    box-shadow: 0 0 20px #53A9FF;
+    -webkit-box-shadow: 0 0 20px #53A9FF;
+    -moz-box-shadow: 0 0 20px #53A9FF;
+
+		
+		
+	
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si #footer se elimina o se saca fuera de #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.campotlf {
+	border-radius: 5px;
+		padding-top: 9px;
+	padding-right: 10px;
+	padding-bottom: 9px;
+	padding-left: 32px;
+	margin-bottom: 5px;
+	width: 300px;
+	border: 1px solid #999;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background: url(../img/iconos/1418525887_phone_2.png) no-repeat 9px center #FFFFFF;
+
+	
+}
+
+.campocorreo {
+	border-radius: 5px;
+		padding-top: 9px;
+	padding-right: 10px;
+	padding-bottom: 9px;
+	padding-left: 32px;
+	margin-bottom: 5px;
+	width: 300px;
+	border: 1px solid #999;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background: url(../img/iconos/contactop.png) no-repeat 9px center #FFFFFF;
+
+	
+}
+.campoindex{
+	border-radius: 5px;
+	padding-top: 10px;
+		padding-right: 35px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-bottom: 5px;
+	margin-bottom:5px;
+	width:275px;
+	
+	border: 1px solid #999;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+	.boton {
+  background-color:#2395ff;
+	border:1px solid #0066CC;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 8px;
+	min-width: 110px;
+	margin-top: 7px;
+	cursor:pointer;
+}
+.boton:hover {
+ background-color:#55AAFF;
+	color:#fff;
+	cursor:pointer;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.campo{
+	border-radius: 5px;
+	padding: 5px;
+	
+	border: 1px solid #ccc;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	z-index:500
+}
+.iniciarsesion {
+	width: 250px;
+	height: auto;
+	background-color: #09F;
+	border-radius: 10px;
+	padding: 20px;
+	margin-top: 30px;
+	margin-right: 300px;
+	
+	margin-left: 450px;
+	}
+	.exito {
+	box-shadow: 0 0 10px #00A600;
+    -webkit-box-shadow: 0 0 10px #00A600;
+    -moz-box-shadow: 0 0 10px #00A600;
+
+	border-radius:3px;
+	background-color: #AEFFAE;
+	
+	padding: 10px;
+	text-align:center; 
+	padding:10px; 
+	width:600px;
+	float:left ;
+
+	height:auto;
+	
+	color:#006F00;
+	font-size:12px;
+	
+	
+	
+	
+	border: 1px solid #00A600;
+		}
+.sesion {
+	
+	
+	width: 620px;
+	padding: 20px;
+
+	float:none;
+	box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 10px #ccc;
+    border:1px solid #ccc;
+	border-radius:3px;
+	height:150px;
+	background-color: #f7f7f7
+	}
+.error {
+	box-shadow: 0 0 10px #FF0000;
+    -webkit-box-shadow: 0 0 10px #FF0000;
+    -moz-box-shadow: 0 0 10px #FF0000;
+
+	border-radius:3px;
+	background-color: #FFA4A4;
+	width: 580px;
+	padding: 10px;
+	
+	float: left;
+	border: 1px solid #FF0000;
+	height: auto;
+	color: #c71111;
+	}
+.iniciar  {
+	background-color: #71B8FF;
+	width: 380px;
+	padding: 10px;
+	
+	
+	border: 1px solid #0080C0;
+	height: auto;
+	
+	}	
+.recuperarpciones {
+	background-color: #F0F0F0;
+	width: 350px;
+	padding: 20px;
+	margin-top: 30px;
+	margin-left:0px;
+	float:left;
+	border: 1px solid #ccc;
+	height:200px
+	
+}
+
+.recuperarpciones:hover {
+	background-color: #C8C8C8;
+	cursor:pointer;
+}
+input, select{
+    font-size:14px;
+    font-family: Arial, helvetica;
+    outline:none;
+
+
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border:1px solid  #09F(0,0,0, 0.2);
+	
+    
+    padding: 3px;
+}
+
+input:focus, select:focus {
+    box-shadow: 0 0 10px #53A9FF;
+    -webkit-box-shadow: 0 0 10px #53A9FF;
+    -moz-box-shadow: 0 0 10px #53A9FF;
+    border:1px solid #53A9FF;
+	 transition: all 0.75s ease-in-out;
+    -webkit-transition: all 0.75s ease-in-out;
+    -moz-transition: all 0.75s ease-in-out;
+
+	
+   
+}
+.inicio {  box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 10px #ccc;
+    border:1px solid #ccc;
+	border-radius:3px;
+	
+	padding:15px;
+	width:295px;
+	background-color: #f7f7f7
+	
+	
+	 }
+.imgboton {
+	border-radius:3px;
+	border-top-right-radius: 0px; 
+	border-bottom-right-radius: 0px;
+	background-color:#eee;
+	padding: 9px;
+	padding-top:8px;
+	border: 1px solid #CCC;
+	border-right-width: 0px
+	
+}
+.btn {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  text-shadow: 1px 1px 3px #666666;
+  box-shadow: 0 0 10px #53A9FF;
+    -webkit-box-shadow: 0 0 10px #53A9FF;
+    -moz-box-shadow: 0 0 10px #53A9FF;
+    border:1px solid #53A9FF;
+  
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px;
+  background: #3498db;
+ 
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+  cursor:pointer
+}
+
+.usariosrecientes {
+		width:200px;
+	background-color:#f7f7f7;
+	font-size:9px;
+	padding:5px;
+	border:#CCC dashed 1px;
+	margin-top:5px;
+	float:left;
+	height:50px	;
+	margin-left:5px;
+	border-radius:3px;
+}
+.reciente {
+    background-color: #f7f7f7;
+	border-radius:3px;
+	
+	padding: 10px;
+	height:60px;
+	width: 465px;
+	margin-top:10px;
+	border: 1px solid #ccc;
+	
+	}
+.reciente:hover {
+    background-color: #eee;
+	cursor:pointer;
+	
+
+}
+.advertencia {
+	box-shadow: 0 0 5px #FFDF00;
+    -webkit-box-shadow: 0 0 5px #FFDF00;
+    -moz-box-shadow: 0 0 5px #FFDF00;
+
+	border-radius:3px;
+	background-color: #FFFFCE;
+	text-align: left;
+	padding: 10px;
+	
+	float: left;
+	height: auto;
+	width: 580px;
+	border: 1px solid #FFDF00;
+	
+	}
